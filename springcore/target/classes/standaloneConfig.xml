@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<util:list list-class="java.util.ArrayList" id="addressList">
+		<value>DHA Phase 2</value>
+		<value>Gulishan e Iqbal</value>
+		<value>Gulistan e Johar</value>
+	</util:list>
+	
+	<util:map map-class="java.util.HashMap" id="programsMap">
+		<entry key="String Core" value="5000"/> 
+		<entry key="String Boot" value="8000"/>
+		<entry key="Quarkus" value="10000"/>
+	</util:map>
+	
+	<util:properties id="props">
+	 <prop key="Standby Generator">Yes</prop>
+	 <prop key="Heater">Yes</prop>
+	 <prop key="Free Tea">No</prop>
+	 <prop key="Clean Drinking Water">Yes</prop>
+	 <prop key="Air Conditioner">Yes</prop>
+	</util:properties>
+
+
+	<bean class = "com.samee.springcore.standaloneCollection.Organization" name="org1" p:id="111000788" p:name="Adamjee">
+		
+		<!-- <property name = "id" value="111788" />
+		<property name="name" value="Adamjee"/> -->
+		
+		
+		
+		<property name="address">
+			<ref bean="addressList"/>
+		</property>
+		
+		<property name = "programs" ref="programsMap"/>
+		
+		<property name = "properties" ref="props"/>
+	</bean>
+
+</beans>
